@@ -1,7 +1,8 @@
 import { GlobalStyles } from "./components/GlobalStyles";
 import { Helmet } from "react-helmet";
 import Header from "./components/Header";
-
+import { ProductImagesBox } from "./components/ProductImagesBox";
+import { ProductTextBox } from "./components/productTextBox";
 
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
       </Helmet>
       <GlobalStyles />
       <Header/>
+      <div className="productContainer">
+        <ProductImagesBox/>
+        <ProductTextBox/>
+      </div>
     </>
   );
 }

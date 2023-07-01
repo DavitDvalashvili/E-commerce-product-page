@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
     margin: 0 auto;
     max-width: 425px;
+    position: relative;
     @media (min-width: 1440px) {
         width: 1110px;
         max-width: unset;
