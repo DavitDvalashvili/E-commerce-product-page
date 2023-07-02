@@ -1,15 +1,17 @@
 import { StyledTextBox } from "./StylesComponents";
 import minus from "../assets/icon-minus.svg"
 import plus from "../assets/icon-plus.svg"
-import { useState } from "react";
+import { AmountType } from "./Types";
 import cart from "../assets/icon-cart2.svg"
+import { useState } from "react";
 
-export const ProductTextBox = () => {
+export const ProductTextBox = ({setAddAmount} : AmountType) => {
   const price: number = 250;
   const discount: number = 50;
   const discountedPrice: number = price/100*discount;
 
-  const [amount, setAmount] = useState<number>(0)
+  const [amount, setAmount] = useState(0);
+
 
   return (
     <StyledTextBox>
@@ -38,7 +40,12 @@ export const ProductTextBox = () => {
       </div>
       <button>
         <img src={cart} alt="cart" />
-        <span>Add to cart</span>
+        <span
+        onClick={(()=> {
+          {amount ? setAddAmount(amount) : ""};
+          setAmount(0)
+        })}
+        >Add to cart</span>
       </button>
     </StyledTextBox>
   );

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export const GlobalStyles = createGlobalStyle`
 
 * {
@@ -10,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 body {
     margin: 0 auto;
-    max-width: 425px;
+    max-width: 375px;
     position: relative;
     @media (min-width: 1440px) {
         width: 1110px;

@@ -1,10 +1,23 @@
 import styled from "styled-components";
+import { styledDeaderType } from "./Types";
 
-export const StyledHeader = styled.header`
+
+export const StyledHeader = styled.header<styledDeaderType>`
+  //background-color: ${props => (!props.hideNav ? ' rgba(0, 0, 0, 0.75)' : "")};
   padding: 19px 24px 25px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &::after {
+    content: ${props => (props.hideNav ? 'null' : `""`)};
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+  }
   div {
     display: flex;
     justify-content: center;
@@ -18,16 +31,28 @@ export const StyledHeader = styled.header`
       width: 24px;
       height: 24px;
       cursor: pointer;
-      border: solid 4px #fff;
+      border: solid 2px #fff;
       border-radius: 50%;
       transition: all 0.3s ease;
       &:hover {
         border-color: #ff7e1b;
       }
     }
+    .notice {
+      background-color: #ff7e1b;
+      font-size: 10px;
+      color: #fff;
+      font-weight: 700;
+      padding: 2.5px 6px 1.5px 6px;
+      line-height: 8px;
+      border-radius: 6.5px;
+      position: absolute;
+      top: 16px;
+      right: 64px;
+    }
   }
   @media (min-width: 1440px) {
-    padding: 28px 0px 0px 0px;
+    padding: 28px 76px 0px 0px;
     border-bottom: 1px solid #e4e9f2;
     .navBox {
       margin-top: 13px;
@@ -35,11 +60,18 @@ export const StyledHeader = styled.header`
       align-items: flex-start;
       gap: 56.5px;
     }
+    .img-box {
+      margin-top: -35px;
+    }
     div {
       .avatar {
         margin-left: 26.18px;
         width: 50px;
         height: 50px;
+      }
+      .notice {
+        top: 39px;
+        right: 147px;
       }
     }
   }
@@ -99,7 +131,7 @@ export const StyledImageBox = styled.div`
     position: relative;
     img {
       width: 100%;
-      height: 350px;
+      height: 320px;
     }
     div {
       display: flex;
@@ -201,5 +233,62 @@ export const StyledTextBox = styled.div`
     justify-content: center;
     align-items: center;
     gap: 15.54px;
+  }
+`;
+
+export const StyledCart = styled.div`
+  font-weight: 700;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.5);
+  margin: 0px 8px;
+  font-size: 16px;
+  position: absolute;
+  z-index: 7;
+  top: 76px;
+  left: 0px;
+  width: 360px;
+  h1 {
+    padding: 24px 0px 27px 24px;
+    color: #1d2026;
+    border-bottom: 1px solid #e4e9f2;
+    font-size: 16px;
+  }
+  .empty {
+    color: #69707d;
+    padding: 77px 109px 87px 109px;
+  }
+  > div {
+    padding: 24px 24px 32px 24px;
+    .productImg {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+    }
+    .productBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .textBox {
+        color: #69707d;
+        font-weight: 400;
+        line-height: 26px;
+        .expenditure {
+          font-weight: 700;
+          color: #1d2026;
+        }
+      }
+    }
+    button {
+      margin-top: 24px;
+      width: 100%;
+      height: 56px;
+      border-radius: 10px;
+      background: #ff7e1b;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+    }
   }
 `;
