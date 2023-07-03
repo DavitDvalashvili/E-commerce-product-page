@@ -6,6 +6,7 @@ export interface navPropsType {
 export interface cartType {
     handleClick: () => void;
     addAmount: number;
+    innerWidth: number;
 }
 
 export interface AmountType {
@@ -17,4 +18,7 @@ export type cartBoxType = {
 }
 export interface styledDeaderType {
     hideNav: boolean;
+}
+export interface styleImageBox {
+    innerWidth: number;
 }

@@ -6,12 +6,13 @@ import product4 from "../assets/image-product-4.jpg"
 import previous from "../assets/icon-previous.svg"
 import next from "../assets/icon-next.svg"
 import { useState } from "react";
+import { styleImageBox } from "./Types";
 
 const products = [product1, product2, product3, product4];
 
 
 
-export const ProductImagesBox = () => {
+export const ProductImagesBox = (props: styleImageBox) => {
     const [index, setIndex] = useState<number>(0);
 
 
@@ -29,8 +30,16 @@ export const ProductImagesBox = () => {
                     }}/>
                 </div>
             </div>
-            <div>
-            </div>
+            {props.innerWidth > 1440 ?
+             <div className="productFlexBox">
+                {products.map((product) => (
+                    <img src={product} alt="product images" key={Math.random()} onClick={() => {
+                        setIndex(products.indexOf(product))
+                    }} />
+                ))}
+            </div> :
+            ""}
         </StyledImageBox>
     )
 }
+

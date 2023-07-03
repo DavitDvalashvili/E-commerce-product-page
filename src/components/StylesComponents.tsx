@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import { styledDeaderType } from "./Types";
 
-
 export const StyledHeader = styled.header<styledDeaderType>`
-  //background-color: ${props => (!props.hideNav ? ' rgba(0, 0, 0, 0.75)' : "")};
   padding: 19px 24px 25px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   &::after {
-    content: ${props => (props.hideNav ? 'null' : `""`)};
+    content: ${(props) => (props.hideNav ? "null" : `""`)};
     position: absolute;
     z-index: 7;
     top: 0;
@@ -125,13 +123,23 @@ export const StyledNav = styled.nav`
   }
 `;
 
+export const StyledProductContainer = styled.div`
+  @media (min-width: 1400px) {
+    margin: 90px 0px 132px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 125px;
+  }
+`;
+
 export const StyledImageBox = styled.div`
-  margin-bottom: -4px;
   .productSlider {
+    height: 320px;
     position: relative;
     img {
       width: 100%;
-      height: 320px;
+      height: 100%;
     }
     div {
       display: flex;
@@ -139,12 +147,9 @@ export const StyledImageBox = styled.div`
       justify-content: space-between;
       position: absolute;
       z-index: 5;
-      padding: 155px 16px;
+      padding: 140px 16px;
       top: 0;
       left: 0;
-      /* &:hover {
-        background-color: rgba(255,255,255, 0.5);
-      } */
       img {
         cursor: pointer;
         width: 40px;
@@ -153,6 +158,45 @@ export const StyledImageBox = styled.div`
           background-color: unset;
         }
       }
+    }
+  }
+  @media (min-width: 1440px) {
+    .productSlider {
+      width: 445px;
+      height: 445px;
+      border-radius: 15px;
+      overflow: hidden;
+      div {
+        width: 445px;
+        height: 445px;
+        img {
+          display: none;
+        }
+        &:hover {
+          background-color: rgba(225, 225, 225, 0.75);
+        }
+      }
+    }
+    .productFlexBox {
+      img {
+        width: 88px;
+        height: 88px;
+        border-radius: 10px;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: 9;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.75);
+          width: 100%;
+          height: 100%;
+        }
+      }
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 `;
@@ -200,7 +244,7 @@ export const StyledTextBox = styled.div`
       font-size: 28px;
       text-decoration: unset;
     }
-    .discount {
+    .percentage {
       padding: 7px 8px 4px 8px;
       color: #ff7e1b;
       font-size: 16px;
@@ -233,6 +277,44 @@ export const StyledTextBox = styled.div`
     justify-content: center;
     align-items: center;
     gap: 15.54px;
+  }
+  @media (min-width: 1440px) {
+    margin-top: 62px;
+    padding: 0px;
+    width: 445px;
+    h2 {
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    h1 {
+      margin: 27px 0px 32px 0px;
+      font-size: 44px;
+      line-height: 48px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 24px;
+    }
+    .priceBox {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .parentOfBtn {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      .amountBox {
+        width: 157px;
+        padding: 0px 16px;
+        margin: 0px;
+      }
+      button {
+        width: 272px;
+      }
+    }
   }
 `;
 
@@ -290,5 +372,11 @@ export const StyledCart = styled.div`
       font-weight: 700;
       border: none;
     }
+  }
+  @media (min-width: 1440px) {
+    margin: 0px;
+    left: unset;
+    right: -76px;
+    top: 94px;
   }
 `;

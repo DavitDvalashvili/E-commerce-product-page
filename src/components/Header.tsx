@@ -18,19 +18,16 @@ const Header = (props: cartType) => {
     }
   }
 
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  window.addEventListener("resize", () => {
-    setInnerWidth(window.innerWidth);
-  });
+
 
   return (
     <StyledHeader hideNav={hideNav}>
       <div className="navBox">
-        {hideNav && innerWidth < 1440 && (
+        {hideNav && props.innerWidth < 1440 && (
           <img src={menu} className="menu" alt="menu" onClick={handleClick} />
         )}
         <img src={logo} className="logo" alt="logo" />
-        {(!hideNav || innerWidth >= 1440) && <Nav handleClick={handleClick} />}
+        {(!hideNav || props.innerWidth >= 1440) && <Nav handleClick={handleClick} />}
       </div>
       <div className="img-box">
         <img
