@@ -24,18 +24,25 @@ export const Cart = (props: cartBoxType) => {
                 )}`}</span>
               </p>
             </div>
-            <img src={deleteIcon} alt="deleteIcon"
-            onClick={(()=> {
-              props.setAddAmount(0)
-            })} />
+            <img
+              src={deleteIcon}
+              alt="deleteIcon"
+              onClick={() => {
+                props.setAddAmount(0);
+              }}
+            />
           </div>
           <button
-          onClick={(()=> {
-            props.setAddAmount(0)
-          })}
-          >Checkout</button>
+            onClick={() => {
+              props.setAddAmount(0);
+            }}
+          >
+            Checkout
+          </button>
         </div>
-      ): ""}
+      ) : (
+        ""
+      )}
     </StyledCart>
   );
 };

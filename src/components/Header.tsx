@@ -18,8 +18,6 @@ const Header = (props: cartType) => {
     }
   }
 
-
-
   return (
     <StyledHeader hideNav={hideNav}>
       <div className="navBox">
@@ -27,7 +25,9 @@ const Header = (props: cartType) => {
           <img src={menu} className="menu" alt="menu" onClick={handleClick} />
         )}
         <img src={logo} className="logo" alt="logo" />
-        {(!hideNav || props.innerWidth >= 1440) && <Nav handleClick={handleClick} />}
+        {(!hideNav || props.innerWidth >= 1440) && (
+          <Nav handleClick={handleClick} />
+        )}
       </div>
       <div className="img-box">
         <img
@@ -36,7 +36,11 @@ const Header = (props: cartType) => {
           alt="cart"
           onClick={props.handleClick}
         />
-        {props.addAmount ? <span className="notice">{props.addAmount}</span> : ""}
+        {props.addAmount ? (
+          <span className="notice">{props.addAmount}</span>
+        ) : (
+          ""
+        )}
         <img src={avatar} className="avatar" alt="avatar" />
       </div>
     </StyledHeader>

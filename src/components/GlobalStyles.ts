@@ -9,14 +9,18 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
 }
+
 body {
     margin: 0 auto;
     max-width: 375px;
-    position: relative;
     @media (min-width: 1440px) {
         width: 1110px;
         max-width: unset;
     }
+}
+
+html {
+    position: relative;
 }
 
 

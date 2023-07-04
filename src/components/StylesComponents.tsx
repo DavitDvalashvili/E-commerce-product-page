@@ -1,11 +1,18 @@
 import styled from "styled-components";
-import { styledDeaderType } from "./Types";
+import { styledHeaderType } from "./Types";
 
-export const StyledHeader = styled.header<styledDeaderType>`
+export const StyledApp = styled.div`
+  position: relative;
+`;
+
+export const StyledHeader = styled.header<styledHeaderType>`
   padding: 19px 24px 25px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  img {
+    cursor: pointer;
+  }
   &::after {
     content: ${(props) => (props.hideNav ? "null" : `""`)};
     position: absolute;
@@ -44,9 +51,9 @@ export const StyledHeader = styled.header<styledDeaderType>`
       padding: 2.5px 6px 1.5px 6px;
       line-height: 8px;
       border-radius: 6.5px;
-      position: absolute;
-      top: 16px;
-      right: 64px;
+      margin-top: -15px;
+      margin-left: -10px;
+      cursor: pointer;
     }
   }
   @media (min-width: 1440px) {
@@ -150,10 +157,15 @@ export const StyledImageBox = styled.div`
       padding: 140px 16px;
       top: 0;
       left: 0;
-      img {
+      svg {
         cursor: pointer;
-        width: 40px;
-        height: 40px;
+        transition: all 0.3s ease;
+        &:hover {
+          path {
+            stroke: #ff7e1b;
+            fill: none;
+          }
+        }
         &:hover div {
           background-color: unset;
         }
@@ -167,9 +179,11 @@ export const StyledImageBox = styled.div`
       border-radius: 15px;
       overflow: hidden;
       div {
-        width: 445px;
-        height: 445px;
-        img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        svg {
           display: none;
         }
         &:hover {
@@ -178,18 +192,13 @@ export const StyledImageBox = styled.div`
       }
     }
     .productFlexBox {
-      img {
+      div {
         width: 88px;
         height: 88px;
         border-radius: 10px;
-        position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          z-index: 9;
-          top: 0;
-          left: 0;
-          background-color: rgba(0, 0, 0, 0.75);
+        overflow: hidden;
+        cursor: pointer;
+        img {
           width: 100%;
           height: 100%;
         }
@@ -198,6 +207,20 @@ export const StyledImageBox = styled.div`
       display: flex;
       justify-content: space-between;
     }
+  }
+`;
+
+export const StyledProduct = styled.div<any>`
+  border: ${(props) => (props.clicked ? "2px solid #FF7E1B;" : "")};
+  position: relative;
+  &::after {
+    content: ${(props) => (!props.clicked ? "null" : `""`)};
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(225, 225, 225, 0.75);
   }
 `;
 
@@ -262,6 +285,9 @@ export const StyledTextBox = styled.div`
     align-items: center;
     padding: 0px 24px;
     margin: 36px 0px 16px 0px;
+    img {
+      cursor: pointer;
+    }
   }
   button {
     width: 100%;
@@ -277,6 +303,11 @@ export const StyledTextBox = styled.div`
     justify-content: center;
     align-items: center;
     gap: 15.54px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #ffab6a;
+    }
   }
   @media (min-width: 1440px) {
     margin-top: 62px;
@@ -327,7 +358,7 @@ export const StyledCart = styled.div`
   font-size: 16px;
   position: absolute;
   z-index: 7;
-  top: 76px;
+  top: 0px;
   left: 0px;
   width: 360px;
   h1 {
@@ -352,6 +383,9 @@ export const StyledCart = styled.div`
       justify-content: center;
       align-items: center;
       gap: 10px;
+      img {
+        cursor: pointer;
+      }
       .textBox {
         color: #69707d;
         font-weight: 400;
@@ -371,6 +405,11 @@ export const StyledCart = styled.div`
       color: #fff;
       font-weight: 700;
       border: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: #ffab6a;
+      }
     }
   }
   @media (min-width: 1440px) {
@@ -378,5 +417,54 @@ export const StyledCart = styled.div`
     left: unset;
     right: -76px;
     top: 94px;
+  }
+`;
+
+export const StyledPopup = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  z-index: 16;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  padding-top: 89px;
+  text-align: right;
+  .productSlider {
+    width: 550px;
+    height: 550px;
+    overflow: visible;
+    div {
+      padding: 247px 0px;
+      &:hover {
+        background-color: unset;
+      }
+      width: 606px;
+      margin-left: -28px;
+      svg {
+        display: block;
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+  .productFlexBox {
+    margin-top: 40px;
+    justify-content: center;
+    gap: 31px;
+  }
+  svg {
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      path {
+        fill: #ff7e1b;
+      }
+    }
   }
 `;
