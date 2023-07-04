@@ -358,7 +358,7 @@ export const StyledCart = styled.div`
   font-size: 16px;
   position: absolute;
   z-index: 7;
-  top: 0px;
+  top: 76px;
   left: 0px;
   width: 360px;
   h1 {
